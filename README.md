@@ -1,21 +1,52 @@
-Congrats! 🎉
+**Assignment 2: Token Healing Algorithm**
 
-If you made it here then you have passed our initial screening. Welcome to second round of your interview.
+I have written a token healing algorithm which performs two major tasks of context aware spell check using Spark NLP and grammer check using GingerIt. I had worked on Colab notebook throughout the entire process but have also compiled the work locally.
 
-During this round, we will evaluate your ability to handle new and intricate learning challenges. Choose one of the following assignments. But don't spend no more than 12 hours working on it. After 12 hours, please submit your progress, regardless of the extent of completion. Feel free to generate code using AI tools and chat apps like chatgpt, bing chat, code copilots, codium etc.
+Just a heads up, only go with cloning this repo and working on your local system if you have Pyspark installed and setup. It is really a hassle to get it to work properly. Although I believe the local version works as intended, I haven't checked it since I was having a really bad time figuring out Pyspark. The colab version works perfectly fine.
 
-To access the assignment details, kindly visit the ***#second-round*** channel . If you have any questions ask in the ***#interview-doubts*** channel.
+To begin with, please make yourself a Python venv.
+```
+python -m venv venvname
+```
+Or if you're a conda enthusiast, go ahead with that.
 
-Discord link -<https://discord.gg/uTYkFDS8>
+Activate your venv with commands corresponding to your OS. Check [this](https://docs.python.org/3/library/venv.html#creating-virtual-environments) for more info on how to.
 
-To create a pull request for a public git repo, you need to follow these steps:
+Once your virtual environment is activated, go ahead and install all the dependencies.
+Run
+```
+pip install -r requirements.txt
+```
+this should install all the dependencies required.
 
--   Fork the repo that you want to contribute to. This will create a copy of the repo under your own GitHub account. You can fork a repo by clicking the **Fork** button on the top right corner of the repo page.
--   Clone your forked repo to your local machine. You can do this by running **`git clone <https://github.com/your-username/repo-name.git`**> in your terminal, where **`your-username`** is your GitHub username and **`repo-name`** is the name of the repo you forked.
--   Create a new branch for your changes. You can do this by running **`git checkout -b branch-name`**, where **`branch-name`** is a descriptive name for your branch.
--   Make your changes in the new branch. You can use any code editor or IDE that you prefer. You can also use GitHub Desktop to manage your changes.
--   Add and commit your changes to the new branch. You can do this by running **`git add .`** to stage all your changes and **`git commit -m "message"`** to commit them with a message, where **`message`** is a brief summary of what you did.
--   Push your changes to your forked repo on GitHub. You can do this by running **`git push origin branch-name`**, where **`branch-name`** is the name of your branch.
--   Create a pull request from your forked repo to the original repo. You can do this by going to your forked repo on GitHub and clicking the **Compare & pull request** button. This will open a page where you can review your changes and add a title and a description for your pull request. You can also link your pull request to an issue if there is one related to your changes. Then click **Create pull request** to submit it.
+NOTE: this does not include Pyspark as I'm hoping you have it installed and setup in your local machine already.
 
-That's it! You have created a pull request for a public git repo. Now you need to wait for the maintainers of the original repo to review and merge your pull request. They might also ask you for some feedback or changes before merging it. You can communicate with them through the comments section of your pull request.
+Just to make sure we're on the same path, you can perform
+```
+pip list
+```
+
+and you would find something like this
+
+![image](https://github.com/9dubs/token-healing/assets/103320629/46545b58-3742-4f05-bb7b-aa307aa28416)
+
+Okay now cd into **tokenhealing** and open main.py in your preferred IDE. On line 23, you could see the **'text'** variable. Assign any string to it. Make sure you have included some intentionally misspelled words!
+
+Once you have done that, go ahead and run main.py by
+```
+python main.py
+```
+
+Just for the sake of it, I'll leave an example below,
+```
+text = "I will gone tomorow"
+```
+and the output is,
+
+![image](https://github.com/9dubs/token-healing/assets/103320629/f6c08730-a24c-49ba-97a1-038cf114e6ba)
+
+Go ahead and give it a try!
+
+Note: The pipeline is really basic and would not be able to handle complex sentences.
+
+On regards to how I have built the Spark NLP pipeline, visit my [colab file](https://colab.research.google.com/drive/1bkUl3Dtb2wu7dbNfV2qmNb2SvrM9PdL6?usp=sharing) where I have documented every single line. You can go ahead, create a copy and run each of those cells to see the same result!
